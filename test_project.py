@@ -1,4 +1,2 @@
-from cgi import test
-import game
+import unittest
 
-test
