@@ -1,11 +1,17 @@
 import random
 
 class Participant:
-    def __init__(self, name):
+    def __init__(self, name, is_bot=False):
         self.name = name
         self.points = 0
         self.choice = ""
+        self.is_bot = is_bot
     def choose(self):
+        if (self.is_bot == True):
+            self.choice = random.choice(bot_posibilities)
+            print("{name} selects {choice}".format(name=self.name, choice=self.choice))
+            return 
+            
         self.choice = input("{name}, select rock, paper, scissor, lizard, or spock: ".format(name=self.name))
         print("{name} selects {choice}".format(name=self.name, choice=self.choice))
     def toNumericalChoice(self):
@@ -17,8 +23,16 @@ class Participant:
             "spock": 4
         }
         return switcher[self.choice]
+
     def incrementPoint(self):
         self.points += 1
+
+#player2 bot
+# array
+bot_posibilities = ["rock","paper","scissor","lizard","spock"]
+
+#random output of the array
+
 
 class GameRound:
     def __init__(self, p1, p2):
@@ -55,7 +69,7 @@ class Game:
     def __init__(self):
         self.endGame = False
         self.participant = Participant("Spock")
-        self.secondParticipant = Participant("Kirk")
+        self.secondParticipant = Participant("Kirk", True)
     def start(self):
         while not self.endGame:
             GameRound(self.participant, self.secondParticipant)

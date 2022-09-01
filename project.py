@@ -34,9 +34,11 @@ while run:
 
 	if help_button.draw(screen):
 		print('Help')
+
 		
 	if exit_button.draw(screen):
 		print('EXIT')
+		pygame.quit()
 
 	#event handler
 	for event in pygame.event.get():
