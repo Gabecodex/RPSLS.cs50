@@ -17,5 +17,6 @@ structure conection
         exit
 
 
-
+machine - shadow cooper 
+ai maibe
 
